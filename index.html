@@ -1,0 +1,125 @@
+<html>
+<head>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body onload=assignment5()>
+
+    <div>
+        <h2 class="section">Preventable Diseases</h2>
+    
+        <p>In this visualization project, we will be creating visualizations to take a look into diseases which have been declined in the first world
+        countries but are still prevalent in low-income countries.</p>
+    
+        <p>For the sake of simplicity, we will be using the United States as a benchmark, and we will be taking a deeper dive into the 
+        10 lowest income countries in Africa. Hence, whenever we mention Africa, we are referring to the 10 lowest income 
+        countries in Africa.</p>
+        <p>The metric used for first 4 graph is the mortality rate per 1000. For graph 5 we used new incidence per 1000.</p>
+    
+    </div>
+
+<!-- Start of Graph 1 -->
+<div>
+    <h3>Graph 1:</h3>
+    <p>We start by comparing the most prevelant diseases in Africa (by mortality rate per 1000) to their mortality rate in the United States.<br>
+        If you are curious to know what are the most prevelant diseases in the United States instead, then click to sort by United States and compare
+        their corresponding mortality rate in Africa</p>
+    <p>By default top 4 diseases are shown but you can see more by clicking on add button(or less by clicking on remove)! You can also hover
+        over individual bars to see their mortality rate.
+    </p>
+    <h4>Plot:</h4>
+    <div id="q5_plot" class="center_plot">
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <button id="addButton" type="button">Add</button>
+        <button id="removeButton" type="button" style="margin-left: 10px;">Remove</button>
+        <select id="sort-dropdown" style="margin-left: 10px;">
+            <option value="united-states">Sort by United States</option>
+            <option value="africa" selected>Sort by Africa</option>
+        </select>
+    </div>
+    <p>Few things should catch our eye, we can see that the distribution of the mortality of Infectious and parasitic diseases, 
+        Neonatal Conditions and Respitory infections is very one sided. Infectious and parasitic diseases includes diseases such as tubercolosis, 
+        STDs, HIV e.t.c. and they make up the largest proportion by 3 times as much.
+    </p>
+</div>
+<!-- End of Graph 1 -->
+<br>
+<p>In these force directed graph, we can compare the the nodes to see make-up of diseases in the Africa vs United States. 
+    Hover over the nodes to see which disease it is and size of the node is proportional to its prevalance.
+<!--Start of Graph 2 and 3-->
+<div style="display: flex; justify-content: space-between;"> <!-- Start a flex container for side by side plots -->
+
+    </p>
+    <div style="width: 50%;"> <!-- Each plot takes 50% of the container's width -->
+        <h3>Graph 2</h3>
+        <p>A force directed network graph of diseases with highest mortality rate in Africa</p>
+        <h4>Plot:</h4>
+        <div id="q2_plot" class="center_plot">
+        </div>
+    </div>
+
+    <div style="width: 50%;"> <!-- Each plot takes 50% of the container's width -->
+        <h3>Graph 3</h3>
+        <p>A force directed network graph of diseases with highest mortality rate in United States.</p>
+        <h4>Plot:</h4>
+        <div id="q3_plot" class="center_plot">
+        </div>
+    </div>
+
+</div> <!-- End of the flex container -->
+<!--End of Graph 2 and 3-->
+<p>The purpose of this graph is to  examine the composition of diseases in United States vs Africa</p>
+
+<p>What piqued my interest is how infectious and parasitic diseases is by far the largest disease in
+     these poor African countries, but almost non-existent in the United States.</p>
+<p>Lets make chloropleth to explore this trend more.</p>
+
+<!-- Start of Question 4 -->
+<div>
+    <h3>Graph 4:</h3>
+    <h4>Plot:</h4>
+    <div id="q4_plot" class="center_plot">
+    </div>
+    <p>Observing from the chloropleth it seems like our hypothesis is true that countries in Africa 
+        are more prone to Infectious and parasitic diseases.</p>
+        <p>Hovering over a country will highlight them if you are curious!</p>
+    <p>We might notice the value for some of the countries is zero this is because some of the countries in my geojson did not exist in my
+        original datset or vice versa.</p>
+
+    </p>
+</div>
+<!-- End of Question 4 -->
+
+<div>
+    <h3>Graph 5:</h3>
+    <p>One of the deadliest type of Infectious disease is HIV (excluding STIs). The graph below shows the number of new incidences of HIV(per 1000).
+    All the top 4 countries are African countries, and we compare their rate to United States. <br> <br>
+    
+    If you are curious you can add any country from the drop down menu bar and the pattern will be clear that African countries have
+    way higher HIV rates than rest of the world.<br><br>
+    If the graph gets too cluttered you can use threshold to remove lines below a certain value.
+    </p>
+    <h4>Plot:</h4>
+    <div id="q6_plot" class="center_plot">
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <select id="country-dropdown"></select>
+        <button id="add-country">Add</button>
+        <button id="remove-country">Remove</button>
+        <button id="clear-all">Clear All</button>
+        <label for="threshold">Threshold:</label>
+        <input type="number" id="threshold" name="threshold">
+        <button id="set-threshold">Set Threshold</button>
+    </div>
+    <p>This trend proves that these diseases are easily eradicable just as they have been eradicated in the first world countries.
+        With financial help, they can also be eradicated in these lower income countries as more money can be alloted to healthcare.
+    </p>
+    <p>
+        This is crucial because these are deaths that can be easily prevented with a little bit of help.
+</div>
+<!-- End of Question 6 -->
+</body>
+</html>
